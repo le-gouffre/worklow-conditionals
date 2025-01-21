@@ -99,6 +99,9 @@ jobs:
         run: echo "Deploying..."
 
   report:
+    needs:
+      - lint
+      - deploy
     if: failure()
     runs-on: ubuntu-latest
 
