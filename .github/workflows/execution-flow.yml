@@ -47,7 +47,8 @@ jobs:
         run: npm run test
 
       - name: Upload test report
-        if: failure() && ${{ steps.run-tests.outcome == 'failure' }}
+      # The correct way to use multiple conditions in if: statements is either using an expression or an inline condition, not mixing both.
+        if: failure() && steps.run-tests.outcome == 'failure' 
         uses: actions/upload-artifact@v3
         with:
           name: test-report
