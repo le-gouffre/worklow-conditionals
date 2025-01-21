@@ -95,6 +95,14 @@ jobs:
     # secrets:
     #   some-secret: ${{ secrets.some-secret }}
 
+  print-deploy-result:
+    needs: deploy
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Print Deploy output
+        run: echo "${{ needs.deploy.outputs.result }}"
+
   report:
     needs:
       - lint
