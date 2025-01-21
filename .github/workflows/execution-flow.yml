@@ -1,7 +1,9 @@
 name: Website Deployment
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   lint:
@@ -89,6 +91,6 @@ jobs:
 
       - name: Output contents
         run: ls
-        
+
       - name: Deploy
         run: echo "Deploying..."
